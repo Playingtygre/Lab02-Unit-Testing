@@ -5,7 +5,12 @@ VisualStudioVersion = 15.0.27428.2011
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{A43BAE3B-E76F-4673-93C8-7199EC7BF9CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Atm_testing", "Atm_testing\Atm_testing.csproj", "{915746FF-994E-40F3-9BF0-784B59758BCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atm_testing", "Atm_testing\Atm_testing.csproj", "{915746FF-994E-40F3-9BF0-784B59758BCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BAC9BA8E-9D29-4754-9848-F8B8CC25DAE1}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.Md = Readme.Md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
