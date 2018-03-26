@@ -7,77 +7,160 @@ namespace ConsoleApp1
 
         public static void Main()
         {
+                decimal currentBalance = 1000;
+                bool sessionActive = true;
 
-            int amount = 1000, deposit, withdraw;
-            int choice, pin = 0;
-            Console.WriteLine("Enter your Pin Number");
-            pin = int.Parse(Console.ReadLine());
+                Console.WriteLine("Welcome to the automated teller machine!");
 
-            // if user input the correct pin this while loop executes. 
-            while (true)
-            {
-                Console.WriteLine(" ----Welcom to the bank---- ");
-                Console.WriteLine("Current Balance {0}", amount);
-                Console.WriteLine("1. Check Your Balance");
-                Console.WriteLine("2. Take Money out of your account");
-                Console.WriteLine("3. Add money to your account ");
-                Console.WriteLine("4. Exit -- Quit ");
-
-
-                // 4 switch statments that allow, deduction, addition, or viewing of Balance
-                choice = int.Parse(Console.ReadLine());
-                switch (choice)
+                // Run a finite state machine until the user chooses to exit
+                while (sessionActive)
                 {
-                    // If use press one then balance is displayed
-                    case 1:
-                        Console.WriteLine(" Your balance is : {0}", amount);
-                        break;
+                    DisplayMenu();
 
-                    //If user press 2 then amount is asked to make an subtraction
-                    case 2:
-                        Console.WriteLine("Enter The Amount to Withdraw: ");
-                        withdraw = int.Parse(Console.ReadLine());
-
-                        if (withdraw % 100 != 0)
-                        {
-                            Console.WriteLine("Please enter Multiples of 100");
-                        }
-
-                        // user input cannot allow more than the given balance
-                        else if (withdraw > (amount - 0))
-                        {
-                            Console.WriteLine("INSUFFICENT BALANCE");
-                        }
-
-                        else
-                        {
-                            amount = amount - withdraw;
-                            Console.WriteLine(" Please Collect Cash");
-                            Console.WriteLine("Your balance is {0}", amount);
-                        }
-                        break;
-
-                     // pressing 1 allows user to add money to account
-                    case 3:
-                        Console.WriteLine("Enter the Ammount to Deposit");
-                        deposit = int.Parse(Console.ReadLine());
-                        amount = deposit + amount;
-                        Console.WriteLine("Your blanace is {0}", amount);
-                        break;
-
-        
-                    case 4:
-                        Console.WriteLine(" Thank you for using this Console ATM");
-                        break;
-
-        
+                    switch (Console.ReadKey(true).KeyChar)
+                    {
+                        case '1':
+                            currentBalance = WithdrawPrompt(currentBalance);
+                            break;
+                        case '2':
+                            currentBalance = DepositPrompt(currentBalance);
+                            break;
+                        case '3':
+                            Console.WriteLine($"\nYour current balance is {ViewBalance(currentBalance)}");
+                            break;
+                        case '4':
+                            sessionActive = false;
+                            break;
+                        default:
+                            continue;
+                    }
                 }
-
-                Console.WriteLine("Transaction ended");
-
-            }
+           
 
         }
 
+        static void DisplayMenu()
+        {
+            Console.WriteLine("\nPlease choose an option below:");
+            Console.WriteLine("1) Withdraw Funds");
+            Console.WriteLine("2) Deposit Funds");
+            Console.WriteLine("3) View Account Balance");
+            Console.WriteLine("4) End Session");
+        }
+
+        
+        static decimal ReadUserDecimal()
+        {
+            decimal amount;
+
+            for (; ; )
+            {
+                try
+                {
+                    amount = Convert.ToDecimal(Console.ReadLine());
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("user entered a small number");
+                    Console.WriteLine("Please type in a number");
+                    continue;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Could not understand User input");
+                }
+
+                /*if (amount >= 0x0)
+                {
+                    break;
+                }*/
+
+                Console.WriteLine("Please try again");
+            }
+            return amount;
+
+        }
+
+        static decimal WithdrawPrompt(decimal currentBalance)
+        {
+            Console.WriteLine($"\nYour current balance is {ViewBalance(currentBalance)}");
+            Console.WriteLine("How much would you like to withdraw?");
+            Console.WriteLine("Please only type numbers and decimal points.");
+
+            try
+            {
+                return WithdrawFunds(currentBalance, ReadUserDecimal());
+            }
+            catch (InvalidOperationException e)
+            {
+                Console.WriteLine(e.Message);
+                return currentBalance;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+                return currentBalance;
+            }
+        }
+
+        private static decimal WithdrawFunds(decimal currentBalance, decimal v)
+        {
+            throw new NotImplementedException();
+        }
+
+        static decimal DepositPrompt(decimal currentBalance)
+        {
+            Console.WriteLine("\nHow much would you like to deposit?");
+            Console.WriteLine("Please only type numbers and decimal points.");
+
+            try
+            {
+                return DepositFunds(currentBalance, ReadUserDecimal());
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine(e.Message);
+                return currentBalance;
+            }
+        }
+
+        private static decimal DepositFunds(decimal currentBalance, decimal v)
+        {
+            throw new NotImplementedException();
+        }
+
+        ///dispalying your account
+        public static string ViewBalance(decimal currentBalance) 
+            {
+            return currentBalance.ToString("C");
+            }
+
+
+       // this method withdraws money from the account//
+        public static decimal Withdraw(decimal currentBalance, decimal withdrawNumber)
+        {
+            if (withdrawNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException(" No");
+            }
+            if (withdrawNumber > currentBalance)
+            {
+                throw new InvalidOperationException("unable to perform");
+            }
+
+            return currentBalance - withdrawNumber;
+        }
+
+
+        // adding a deposit
+        public static decimal DepositMoney(decimal currentBalance, decimal depositNumber)
+        {
+            if (depositNumber < 0)
+            {
+                throw new ArgumentOutOfRangeException("No");
+            }
+            return currentBalance + depositNumber;
+        }
     }
+
 }
