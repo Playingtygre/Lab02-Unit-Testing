@@ -4,11 +4,11 @@
 **Tiger Hsu**
 
 ##Resources and Links
-StackOverFlow
-401 - .NET d n3 group 
-Aurthur A
-Philip W
-Josh T
+StackOverFlow <br>
+401 - .NET d n3 group <br>
+Aurthur A <br>
+Philip W <br>
+Josh T <br>
 Kevin F
 
 **Version**: 2.2.0 
@@ -24,8 +24,8 @@ Create a bank "ATM" machine within a console application with VS2017
 
 ## Example
 
-![alt text](http://url/to/img.png)
-
+![alt text](/ConsoleApp1/ATM.JPG)
+/ConsoleApp1/ATM.JPG
 
 
 ## Architecture
