@@ -1,4 +1,6 @@
 ## ATM Project
+Application in class; methods practice is withdrawing money, adding money, and viewing money.
+This is a console Application that allows for basic transactions. 
 
 ## Author
 Tiger Hsu
