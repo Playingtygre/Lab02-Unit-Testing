@@ -1,9 +1,9 @@
 ## ATM Project
 
-##Author:
+## Author
 Tiger Hsu
 
-##Version:
+## Version
 3.2.0 
 
 ## Overview
@@ -25,20 +25,20 @@ This  Program uses C# and the .NET Core 2.0 platform
 Microsoft VS code 
 
 ## Credits
-Aurther Allen
-Kevin Farrow
-Brent William
-Philip Werner
-Josh Taylor
-Amanda Iverson
+Aurther Allen <br>
+Kevin Farrow <br>
+Brent William <br>
+Philip Werner <br>
+Josh Taylor <br>
+Amanda Iverson <br>
 
 ## Resources
 StackoverFlow
 Microsoft Docs
 
-##License
+## License
 MIT License
 
 ## Change Log
 
-01-01-2001 4:59pm - Added functionality to add and delete some things. -->
+03-28-2018
