@@ -1,32 +1,44 @@
-# ATM Project
+## ATM Project
 
-## Author
-**Tiger Hsu**
+##Author:
+Tiger Hsu
 
-##Resources and Links
-StackOverFlow <br>
-401 - .NET d n3 group <br>
-Aurthur A <br>
-Philip W <br>
-Josh T <br>
-Kevin F
-
-**Version**: 2.2.0 
-
+##Version:
+3.2.0 
 
 ## Overview
-Create a bank "ATM" machine within a console application with VS2017
+Create a bank "ATM" machine within a console application with VS2017, This is a practice of using methods in C#.
 
 ## Getting Started
--Download VS code
--Fork this repo
--Run code in VS studio 
+- Fork this repo / or clone this repo
+- Download Microsoft Visual Studio Community Edition 2017
+- Open Visual Studio 2017
+- Open this file name 
+- Select run program.cs
 
 ## Example
 
 ![alt text](/ConsoleApp1/ATM.JPG)
-/ConsoleApp1/ATM.JPG
-
 
 ## Architecture
+This  Program uses C# and the .NET Core 2.0 platform
 Microsoft VS code 
+
+## Credits
+Aurther Allen
+Kevin Farrow
+Brent William
+Philip Werner
+Josh Taylor
+Amanda Iverson
+
+## Resources
+StackoverFlow
+Microsoft Docs
+
+##License
+MIT License
+
+## Change Log
+
+01-01-2001 4:59pm - Added functionality to add and delete some things. -->
